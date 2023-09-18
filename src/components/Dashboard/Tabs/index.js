@@ -6,7 +6,7 @@ import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
 import { useState } from 'react';
 import Grid from '../Grid';
-import "./style.css"
+import "./style.css";
 import List from '../List';
 
 
@@ -40,7 +40,7 @@ const theme=createTheme({
         <div position="static">
           <TabList onChange={handleChange} variant='fullWidth'>
             <Tab label="Grid" value="Grid"  sx={style}/>
-            <Tab label="List" value="List" sx={style} />
+            <Tab label="List" value="List" sx={style} />   
           </TabList>
         </div>
         <TabPanel value="Grid">
@@ -51,7 +51,7 @@ const theme=createTheme({
           </div>
         </TabPanel>
         <TabPanel value="List">
-        <table>
+        <table className='list-table'>
             {coins.map((coin,id)=>{
               return   <List coin={coin} key={id}/>
             })}
