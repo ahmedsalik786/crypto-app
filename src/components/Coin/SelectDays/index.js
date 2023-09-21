@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import "./style.css"
-export default function SelectDays({days,handleDaysChange}) {
+export default function SelectDays({days,handleDaysChange,noPTag}) {
 
   return (
     <div className='select-days' >
-        <p>Price change in </p>
+      {!noPTag && <p>Price change in </p>}
         <Select  sx={{
             height:"2.5rem",
             width:"10rem",

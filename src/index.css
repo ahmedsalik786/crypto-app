@@ -73,3 +73,8 @@ img {
 .grey-wrapper h2,p{
   margin: 1rem 1rem;
 }
+.coins-days-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
