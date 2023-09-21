@@ -10,6 +10,7 @@ import List from "../components/Dashboard/List";
 import CoinInfo from "../components/Coin/CoinInfo";
 import { settingChartData } from "../functions/settingChartData";
 import LineChart from "../components/Coin/LineChart/LineChart";
+import TogglePriceType from "../components/Coin/TogglePriceType";
 
 function ComparePage() {
   const [loading, setLoading] = useState(true);
@@ -18,8 +19,24 @@ function ComparePage() {
   const [crypto1Data, setCrypto1Data] = useState({});
   const [crypto2Data, setCrypto2Data] = useState({});
   const [days, setDays] = useState(30);
-  const [priceType, setPriceType] = useState("prices");
+  const [priceType, setPriceType] = useState("market_caps");
   const [chartData, setChartData] = useState({});
+
+  const handlePriceTypeChange = async (e, newType) => {
+    setLoading(true);
+    setPriceType(newType);
+
+    const prices1 = await getCoinPrices(crypto1, days, newType);
+    const prices2 = await getCoinPrices(crypto2, days, newType);
+
+    if (prices1 && prices2) {
+      settingChartData(setChartData, prices1, prices2);
+      setLoading(false);
+    } else {
+      console.error("Error: prices1 or prices2 is undefined or empty");
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     getData();
@@ -42,37 +59,70 @@ function ComparePage() {
     }
   }
 
+  // const handleCoinChange = async (event, isCoin2) => {
+  //   setLoading(true);
+  //   if (isCoin2) {
+  //     setCrypto2(event.target.value);
+  //     const data = await getCoinData(event.target.value);
+  //     coinObject(setCrypto2, data);
+  //     const prices1 = await getCoinPrices(crypto1, days, priceType);
+  //     const prices2 = await getCoinPrices(crypto2, days, priceType);
+  //     if (prices1.length > 0 && prices2.length > 0) {
+  //       console.log("Both prices", prices1, prices2);
+  //       setLoading(false);
+  //     }
+  //   } else {
+  //     setCrypto1(event.target.value);
+  //     const data = await getCoinData(event.target.value);
+  //     coinObject(setCrypto1, data);
+  //   }
+  // };
+
   const handleCoinChange = async (event, isCoin2) => {
     setLoading(true);
     if (isCoin2) {
       setCrypto2(event.target.value);
       const data = await getCoinData(event.target.value);
       coinObject(setCrypto2, data);
+  
+      // Fetch prices and check if they are available
       const prices1 = await getCoinPrices(crypto1, days, priceType);
-      const prices2 = await getCoinPrices(crypto2, days, priceType);
-      if (prices1.length > 0 && prices2.length > 0) {
+      const prices2 = await getCoinPrices(event.target.value, days, priceType);
+  
+      if (prices1 && prices1.length > 0 && prices2 && prices2.length > 0) {
         console.log("Both prices", prices1, prices2);
+        setLoading(false);
+      } else {
+        console.error("Error: Prices are undefined or empty");
         setLoading(false);
       }
     } else {
       setCrypto1(event.target.value);
       const data = await getCoinData(event.target.value);
       coinObject(setCrypto1, data);
+  
+      // Fetch prices and check if they are available
+      const prices1 = await getCoinPrices(event.target.value, days, priceType);
+      const prices2 = await getCoinPrices(crypto2, days, priceType);
+  
+      if (prices1 && prices1.length > 0 && prices2 && prices2.length > 0) {
+        console.log("Both prices", prices1, prices2);
+        setLoading(false);
+      } else {
+        console.error("Error: Prices are undefined or empty");
+        setLoading(false);
+      }
     }
-
-    // const prices1 = await getCoinPrices(crypto1, days, priceType);
-
-    // const prices2 = await getCoinPrices(crypto2, days, priceType);
   };
+  
 
   const handleDaysChange = async (e) => {
-    setLoading(true)
+    setLoading(true);
     setDays(e.target.value);
     const prices1 = await getCoinPrices(crypto1, days, priceType);
     const prices2 = await getCoinPrices(crypto2, days, priceType);
     settingChartData(setChartData, prices1, prices2);
-    setLoading(true)
-
+    setLoading(true);
   };
 
   return (
@@ -103,6 +153,10 @@ function ComparePage() {
           </div>
 
           <div className="grey-wrapper">
+            <TogglePriceType
+              priceType={priceType}
+              handlePriceTypeChange={handlePriceTypeChange}
+            />
             <LineChart
               chartData={chartData}
               priceType={priceType}
