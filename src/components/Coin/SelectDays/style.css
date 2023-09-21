@@ -1,0 +1,26 @@
+.MuiInputBase-root{
+    cursor: pointer;
+    display: inline-flex;
+    position: relative;
+    font-size: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.1876em;
+    letter-spacing: 0.00938em;
+    color: var(--white) !important;
+    border: 1px solid var(--white);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 15px !important;
+    border-color: var(--white) !important;
+}
+.select-days{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin: 1rem;
+}

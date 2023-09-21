@@ -1,0 +1,15 @@
+/* style.css */
+.light-toggle-group {
+    background-color: var(--grey); 
+    border-radius: 4px; 
+    padding: 8px; 
+    margin-left: 40%;
+    
+  }
+  
+  
+  .light-toggle-group .MuiToggleButton-root {
+    color: var(--white); 
+    background-color: var(--black); 
+  }
+  
