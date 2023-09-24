@@ -3,7 +3,7 @@ import "./style.css"
 import Button from "../../common/Button"
 import iphone from "../../../assets/iphone.png"
 import gradient from "../../../assets/gradient.png"
-
+import { RWebShare } from 'react-web-share'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
@@ -43,7 +43,16 @@ function MainComponent() {
           />
 
           </Link>
-          <Button text={"share"} outlined={true}/>
+          <RWebShare
+          data={{
+            text: "Blast Off into the World of Cryptos!",
+            url: "https://chipper-platypus-576377.netlify.app/",
+            title: "crypto-app.",
+          }}
+          onClick={() => console.log("shared successfully!")}
+          >
+              <Button text={"share"} outlined={true}/>
+          </RWebShare>
         </motion.div>
       </div>
       <div className="phone-container">
