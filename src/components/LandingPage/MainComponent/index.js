@@ -30,7 +30,7 @@ function MainComponent() {
         animate={{opacity:1,y:0}}
         transition={{duration:1, delay:0.75}}
         >
-          track crypto through a public API in real time . Visit the DashBoard to do so !
+          Track crypto through a public API in real time . Visit the DashBoard to do so !!!
         </motion.p>
         <motion.div className="btn-flex"
         initial={{opacity:0,x:50}}

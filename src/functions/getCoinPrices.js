@@ -6,7 +6,8 @@ export const getCoinPrices=(id , days ,priceType) =>{
   `
     )
     .then((response) => {
-      console.log("Prices>>>", response.data);
+      console.log(priceType);
+      console.log("Prices>>>", response.data[priceType]);
       return response.data[priceType];
     })
     .catch((err) => {

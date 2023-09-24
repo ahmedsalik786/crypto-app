@@ -63,7 +63,7 @@ function List({ coin, id }) {
                     : "var(--green)",
               }}
             >
-              INR{coin.current_price.toLocaleString()}
+              ₹{coin.current_price.toLocaleString()}
             </h3>
           </Tooltip>
         </td>
@@ -77,14 +77,14 @@ function List({ coin, id }) {
         <td className="desktop-td-mkt">
           <Tooltip title="Market Cap">
             <p className="total-volume td-right-align">
-              INR{coin.market_cap.toLocaleString()}
+            ₹{coin.market_cap.toLocaleString()}
             </p>
           </Tooltip>
         </td>
         <td className="mobile-td-mkt">
           <Tooltip title="Market Cap">
             <p className="total-volume td-right-align">
-              INR{convertNumber(coin.market_cap)}
+            ₹{convertNumber(coin.market_cap)}
             </p>
           </Tooltip>
         </td>

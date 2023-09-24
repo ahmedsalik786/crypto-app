@@ -25,25 +25,25 @@ function LineChart({ chartData, priceType, multiAxis }) {
           // Include a dollar sign in the ticks
           callback: function (value, index, ticks) {
             if (priceType === "prices") {
-              return "INR" + value.toLocaleString();
+              return "₹" + value.toLocaleString();
             } else {
-              return "INR" + convertNumber(value);
+              return "₹" + convertNumber(value);
             }
           },
         },
       },
-      crypto2: {
+      crypto2: multiAxis && {
         type:"linear",
         display:true,
         position: "right",
         
         ticks: {
-          // Include a dollar sign in the ticks
+          // Include a rupee sign in the ticks
           callback: function (value, index, ticks) {
             if (priceType === "prices") {
-              return "INR" + value.toLocaleString();
+              return "₹" + value.toLocaleString();
             } else {
-              return "INR" + convertNumber(value);
+              return "₹" + convertNumber(value);
             }
           },
         },

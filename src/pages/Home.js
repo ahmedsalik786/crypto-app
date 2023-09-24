@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/common/Header'
 import MainComponent from '../components/LandingPage/MainComponent'
+import Footer from '../components/common/Footer';
 
 function Home() {
   return (
@@ -8,6 +9,7 @@ function Home() {
         <Header/>
 
         <MainComponent/>
+        <Footer/>
     </div>
   )
 }

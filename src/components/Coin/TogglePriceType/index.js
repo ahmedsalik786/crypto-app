@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import './style.css'; // Make sure to import your CSS file
+import React, { useState } from "react";
+import ToggleButton from "@material-ui/lab/ToggleButton";
+import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
+import "./style.css"; // Make sure to import your CSS file
 
-export default function TogglePriceType({priceType,handlePriceTypeChange}) {
-
+export default function TogglePriceType({ priceType, handlePriceTypeChange }) {
   return (
     <ToggleButtonGroup
       value={priceType}
@@ -15,8 +14,7 @@ export default function TogglePriceType({priceType,handlePriceTypeChange}) {
     >
       <ToggleButton value="prices">Prices</ToggleButton>
       <ToggleButton value="total_volumes">Total Volumes</ToggleButton>
-      <ToggleButton value="market_caps
-">Market Caps</ToggleButton>
+      <ToggleButton value="market_caps"> Market Caps </ToggleButton>
     </ToggleButtonGroup>
   );
 }

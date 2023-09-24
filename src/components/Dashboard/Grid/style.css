@@ -1,10 +1,10 @@
 .grid-container{
-    width: 270px;
-    height: 290px;
+    width: 300px;
+    /* height: 330px; */
     background-color: var(--darkgrey);
     border: 2px solid var(--darkgrey);
     border-radius: 0.75rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
 
 }
 .grid-container:hover{
@@ -20,7 +20,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 1.5rem;
-    margin:1.5rem;
+    margin:1rem;
 }
 .coin-logo{
     height: 3.5rem;
@@ -98,6 +98,7 @@
     font-weight: 600;
 }
 .total-volume{
+    padding: 0;
     color: var(--grey);
     font-size: 1rem;
     font-weight: 500;

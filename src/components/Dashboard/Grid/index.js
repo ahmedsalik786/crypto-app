@@ -52,7 +52,7 @@ function Grid({ coin, id }) {
                   : "var(--green)",
             }}
           >
-            INR {coin.current_price.toLocaleString()}
+            ₹ {coin.current_price.toLocaleString()}
           </h3>
         </div>
         <p className="total-volume">

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/common/Header";
 import TabsComponent from "../components/Dashboard/Tabs";
-import axios from "axios";
 import Search from "../components/Dashboard/Search";
 import PaginationComponent from "../components/Dashboard/PaginationComponent";
 import Loader from "../components/common/Loader";
 import BackToTop from "../components/common/BackToTop";
 import { get100Coin } from "../functions/get100Coin";
+import Footer from "../components/common/Footer";
 function DashboardPage() {
   const [search, setSearch] = useState("");
   const [coins, setCoins] = useState([]);
@@ -74,6 +74,7 @@ function DashboardPage() {
           <BackToTop/>
         </div>
       )}
+      <Footer/>
     </>
   );
 }
